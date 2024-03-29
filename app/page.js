@@ -1,95 +1,74 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+import "./page.css";
+import NumberBtn from "./components/numbers-btn/page";
+import FunctionBtn from "./components/functions-btn/page";
+import React, { useEffect } from "react";
+import { Numbers, Signs } from "./utils/signs";
+import useSign from "./components/hooks/useSign";
 
-export default function Home() {
+export default function Home(props) {
+  const {
+    clearValue,
+    deleteValue,
+    cocatenateValue,
+    operateValue,
+    disable,
+    answer,
+    display,
+  } = useSign();
+
+
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="main">
+      <div className="wrapper">
+        <div className="input">{`${display}`}</div>
+
+        <div className="answer">{answer}</div>
+
+        <div className="inline">
+          <div className="clear" onClick={clearValue}>
+            <p>AC</p>
+          </div>
+          <div className="clear" onClick={deleteValue}>
+            <p>DEL</p>
+          </div>
+        </div>
+
+        <div className="grid">
+          <div className="flex">
+            {Numbers.map((number, index) => {
+              return (
+                <div key={index}>
+                  <NumberBtn
+                    click={() => cocatenateValue(number)}
+                    digit={number}
+                    style="test"
+                  />
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="flex2">
+            {Signs.map((sym, index) => {
+              return (
+                <div key={index}>
+                  <FunctionBtn
+                    click={() => cocatenateValue(sym)}
+                    disabled = {disable}
+                    operand={sym}
+                    style="test2"
+                  />
+                </div>
+              );
+            })}
+            <div className="operate" onClick={operateValue}>
+              <p>=</p>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
 }

@@ -1,0 +1,147 @@
+.main{
+    width: 100%;
+}
+
+.wrapper{
+    width: 95%;
+    margin-inline: auto;
+}
+
+.input{
+    background-color: transparent;
+    width: 100%;
+    text-align: right;
+    font-size: 2.5rem;
+    color: grey;
+    margin-top: 4rem;
+}
+
+.answer{
+    margin-top: 2rem;
+    width: 100%;
+    text-align: right;
+    font-size: 4rem;
+    color: white;
+}
+
+.inline{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    column-gap: 1rem;
+    margin-top: 1rem;
+}
+
+.clear{
+    margin-bottom: 1rem;
+    width: fit-content;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    background-color: #9B7F5B;
+}
+
+.clear > p{
+    color: white;
+    font-size: 2rem;
+}
+
+.grid{
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 33%;
+    row-gap: 0.5rem;
+    margin-top: 3rem;
+    width: 70%;
+}
+
+.flex2{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 33%;
+    row-gap: 0.5rem;
+    margin-top: 3rem;
+    width: 30%;
+    justify-content: space-between;
+}
+
+
+.operate{
+    background-color: #0096FF;
+    text-align: center;
+    color: white;
+    width: 100%;
+    padding-block: 1rem;
+    margin-inline: auto;
+    height: fit-content;
+    border-radius: 0.5rem;
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.test{
+    width: fit-content;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #262521;
+    font-size: 1.5rem;
+}
+
+.test2{
+    width: fit-content;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #0096FF;
+    font-size: 1.5rem;
+}
+
+@media(max-width: 583px){
+    .flex{
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 25%;
+        row-gap: 0.5rem;
+        margin-top: 3rem;
+        width: 70%;
+    }
+
+    .flex2{
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 25%;
+        row-gap: 0.5rem;
+        margin-top: 3rem;
+        width: 30%;
+        justify-content: space-between;
+    }
+}
+
+@media(max-width: 398px){
+    .flex{
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 18%;
+        row-gap: 0.5rem;
+        margin-top: 3rem;
+        width: 70%;
+    }
+}
+
+@media(max-width: 388px){
+    .flex2{
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 33%;
+        row-gap: 0.5rem;
+        margin-top: 3rem;
+        width: 30%;
+        justify-content: flex-end;
+    }
+}
+
+
+
